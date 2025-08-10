@@ -18,4 +18,12 @@ def home(request):
         {"name":"Dal Makhani", "description":  "Rich lentil curry", "price":180},   
     ]
     return render(request, 'menu/home.html',{'menu':menu})
+
+def about_us(request):
+    return render(request,'menu/about.hthml')
+
+def custom_404(request, exception):
+    return render(request,'404.html', status=404)
+
+
     
