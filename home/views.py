@@ -17,7 +17,12 @@ def home(request):
         {"name":"Veg Biryani", "description": "Spicy rice with veggies", "price":200},
         {"name":"Dal Makhani", "description":  "Rich lentil curry", "price":180},   
     ]
-    return render(request, 'menu/home.html',{'menu':menu})
+    context ={
+        'restaurant_name': getattr(ssettings, 'RESTAURANT_NAME', 'our')
+    }
+    return render(request, 'menu/home.html',{'menu':menu}, context)
+
+
 
 def about_us(request):
     return render(request,'menu/about.hthml')
