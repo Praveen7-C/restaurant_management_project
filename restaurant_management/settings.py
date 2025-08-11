@@ -72,6 +72,8 @@ TEMPLATES = [
     },
 ]
 
+RESTAURANT_NAME = "Tasty Food Delight"
+
 WSGI_APPLICATION = 'restaurant_management.wsgi.application'
 
 
