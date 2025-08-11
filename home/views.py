@@ -18,7 +18,7 @@ def home(request):
         {"name":"Dal Makhani", "description":  "Rich lentil curry", "price":180},   
     ]
     context ={
-        'restaurant_name': getattr(ssettings, 'RESTAURANT_NAME', 'our')
+        'restaurant_name': getattr(ssettings, 'RESTAURANT_NAME', 'Our Restaurant')
     }
     return render(request, 'menu/home.html',{'menu':menu}, context)
 
