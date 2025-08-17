@@ -53,6 +53,24 @@ def about_us(request):
 def custom_404(request):
     return render(request,'404.html', status=404)
 
+#simple Contact us page
+def contact_view(request):
+    restaurant_obj = Restaurant.objects.first()
+    restaurant_name = (
+        restaurant_obj.name if restaurant_obj else getattr(settings,"RESTAURANT_NAME", 'My Restaurant')
+    )
+    phone_number = (
+        restaurant_obj.phone_number if restaurant_obj else getattr(settings,'RESTAURANT_PHONE', '+91-9876543210')
+    )
+    email = getattr(settings, 'RESTAURANT_EMAIL', 'contact@example.com')
+    address = getattr(settings, 'RESTAURANT_ADDRESS', '123 Main Street, City, Country')
 
+    context = {
+        'restaurant_name': restaurant_name,
+        'phone_number': phone_number,
+        'email': email,
+        'address': address,
+    }
+    return render(request, 'menu/contact.html', context)
 
     
