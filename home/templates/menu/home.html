@@ -1,16 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8"
-    <title>Restaurant Management</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ restaurant_name }} - Welcome</title>
   </head>
-  <body style="margin:0; padding:0; font-family: ' Segoe UI', sans-serif; background-color: #f4f4f4; color: #333;">
-    <h1 style="font-size:3rem; color: #e74c3c; margin-bottom: 20px;">Welcome to {{restaurant_name}}</h1>
-    <a href="about/" style="color: #2980b9; text-decoration: none; font-weight: bold;"> Learn more about us -></a>
-    <h2>Menu</h2>
-    {% if menu_items %}
-    {% for item in menu_items %}
-    <div>
+  <body style="margin:0; font-family: ' Segoe UI', sans-serif; background: #fffdf7; color: #222;">
+    <header style="background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 20px 0">
+        <div style="max-width: 980px; margin: auto; padding: 0 16px;">
+            <h1 style="font-size:3rem; color: #e74c3c; margin-bottom: 20px;">Welcome to {{restaurant_name}}</h1>
+            <p> Welcome to {{ restaurant_name }}! We're happy to serve you delicious meals.</p>
+            {% if phone_number %}
+            <p><strong>Contact us:</strong>{{ phone_number }}</p>
+            {% else %}
+            <p><strong>Contact us:</strong>>Not available</p>
+            {% endif %}
+            <nav style="margin-top: 10px;">
+                <a href="{% url 'home:home' %}" style="margin-right: 20px; color: #555; text-decoration: none;">Home</a>
+                <a href="{% url 'home:about'%}" style="margin-right: 20px; color: #555; text-decoration: none;">About</a>
+                <a href="{% url 'home:contact' %}" style="color: #555; text-decoration: none;"> Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main style="max-width:980px; margin: 40px auto; padding: 0 16px;">
+        <h2 style="font-size: 2rem; margin-bottom: 20px; color: #333;">Explore Our Menu</h2>
+        {% if menu_items %}
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+            {% for item in menu_items %}
+            <div style="background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); transform 0.2s ease;" onmouseover="this.style.transform"
         <h2> {{item.name}}</h2>
         <p>{{item.description}} - Rs.{{item.price}}</p>
     </div>
