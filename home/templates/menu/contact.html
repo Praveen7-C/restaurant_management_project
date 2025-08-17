@@ -1,0 +1,42 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact {{ restaurant_name }} — Get in Touch</title>
+</head>
+<body style="margin: 0; font-family: 'Segoe UI', sans-serif; background: #fffdf7; color: #222;">
+
+    <!-- Header -->
+    <header style="background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 20px 0;">
+        <div style="max-width: 980px; margin: auto; padding: 0 16px;">
+            <h1 style="margin: 0; color: #e44d26;">{{ restaurant_name }}</h1>
+            <p>Welcome to {{ restaurant_name }}! We’re happy to serve you delicious meals.</p>
+            <nav style="margin-top: 10px;">
+                <a href="{% url 'home:home' %}" style="margin-right: 20px; color: #555; text-decoration: none;">Home</a>
+                <a href="{% url 'home:about' %}" style="margin-right: 20px; color: #555; text-decoration: none;">About</a>
+                <a href="{% url 'home:contact' %}" style="color: #555; text-decoration: none;">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main style="max-width: 980px; margin: 40px auto; padding: 0 16px;">
+        <h2 style="font-size: 2rem; margin-bottom: 20px; color: #333;">Contact {{ restaurant_name }}</h2>
+        <p>We’d love to hear from you. Reach out to us through the details below:</p>
+
+        <ul style="list-style-type: none; padding-left: 0; color: #555;">
+            <li><strong>Phone:</strong> {{ phone_number }}</li>
+            <li><strong>Email:</strong> {{ email }}</li>
+            <li><strong>Address:</strong> {{ address }}</li>
+        </ul>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px 0; color: #999;">
+        <p>© {{ restaurant_name }} • Crafted with Django</p>
+    </footer>
+
+</body>
+</html>
