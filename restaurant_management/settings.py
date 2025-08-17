@@ -80,6 +80,15 @@ RESTAURANT_PHONE = "+91-9876543210"
 RESTAURANT_EMAIL = "contact@example.com"
 RESTAURANT_ADDRESS = "123 Main Street, City, Country"
 
+#REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSSION_CLASSES': ['rest_framework.permissions.AllowAny'],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework,authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+}
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
