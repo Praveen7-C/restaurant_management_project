@@ -1,18 +1,38 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>About Us</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>About - {{ restaurant_name }}</title>
     </head>
-    <body style="margin: 0; font-family: 'Segoe UI, sans-serif; background-color:#f9f9f9; color: #333;">
-        <div style="max-width: 800px; margin: 60px auto; padding;  40px;background-color: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-           <h1>About Us</h1>
-           <p style="font-size: 1.2rem; line-height: 1.6; color: #555;">
-            Welcome to  Tasty Food Delight - where tradition meets taste. Our restaurant is built on a passion for authentic Indian cuisine, crafted with fresh ingredients and timeless recipes. Whether you're joining us for a cozy dinner or a festive celebration, we promise a warm atmosphere and unforgettable flavors.
-            </p>
-            <a href="/"><- Back to Home</a>
+    <body style="margin: 0; font-family: 'Segoe UI, sans-serif; background:#fffdf7; color: #222;">
+        <header style="background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); padding: 20px 0;">
+            <div style="max-width: 980px; margin: auto; padding: 0 16px;">
+                <h1 style="margin: 0; color: #e44d26;">{{ restaurant_name}}</h1>
+                <p> Welcome to {{ restaurant_name }}! We're happy to serve you delicious meals.</p>
+                <nav style="margin-top: 10px;">
+                    <a href="{% url 'home:home' %}" style="margin-right: 20px; color: #555; text-decoration: none;">Home</a>
+                    <a href="{% url 'home:about' %}" style="margin-right: 20px; color: #555; text-decoration: none;">About</a>
+                    <a href="{% url 'home:contact' %}" style="color: #555; text-: none;">Contact Us</a>
+                </nav>
             </div>
-        </body>
+        </header>
+
+        <main style="max-width: 980px; margin: 40px auto; padding: 0 16px;">
+            <h2 style="font-size: 2rem; margin-bottom: 20px; color: #333;">About Us</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: #444;">
+                {{ about_text }}
+            </p>
+            <p style="margin-top: 20px; font-size: 1rem; color : #555;">
+                Our passion for food and hospitality drives us to deliver exceptional meals and memorable experiences every day.
+            </p>
+        </main>
+
+        <footer style="text-align: center; padding: 40px 0; color: #999;">
+            <p> {{ restaurant_name }} * Crafted with Django</p>
+        </footer>
+
+    </body>
 </html>
 
