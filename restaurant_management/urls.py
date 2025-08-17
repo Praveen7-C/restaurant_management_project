@@ -16,11 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include('home.urls')),
-    path('api/accounts/',include('account.urls')),
-    path('api/products/',include('products.urls')),
-    path('api/orders/',include('orders.urls')),
+    path('',include('home.urls', namespace='home')),
+    path('api/accounts/',include('account.urls', namespace='account')),
+    path('api/products/',include('products.urls', namespace= 'products')),
+    path('api/orders/',include('orders.urls', namespace= 'orders')),
 ]
+
+#custom 404 handler (make sure DEBUG = False to test)
+handler404 = 'home.views.custom_404'
