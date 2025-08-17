@@ -72,13 +72,13 @@ TEMPLATES = [
     },
 ]
 
-RESTAURANT_NAME = "Tasty Food Delight"
 
 WSGI_APPLICATION = 'restaurant_management.wsgi.application'
 
 RESTAURANT_NAME= "Tasty Food Delight"
 RESTAURANT_PHONE = "+91-9876543210"
-
+RESTAURANT_EMAIL = "contact@example.com"
+RESTAURANT_ADDRESS = "123 Main Street, City, Country"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
