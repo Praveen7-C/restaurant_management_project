@@ -3,7 +3,7 @@ from django.conf import settings
 from products.models import MenuItem, Restaurant
 
 # Create your models here.
-class customer(models.model):
+class Customer(models.model):
     name = models.CharField(max_length=255, blank=True, null =True)
     phone = models.CharField(max_length=20, blank =True, null=True)
     email = models.EmailField(blank=True, null-True)
