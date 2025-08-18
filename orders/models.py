@@ -1,8 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import User
-from products.models import MenuItem
+from django.conf import settings
+from products.models import MenuItem, Restaurant
 
 # Create your models here.
+
+
+
 class Order(models.Model):
     STATUS_CHOICES = [
         ('pending', 'Pending'),
