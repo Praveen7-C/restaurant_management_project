@@ -3,7 +3,7 @@ from .models import Customer, Order
 from products.models import MenuItem
 from products.serializers import MenuItemSerializer
 
-# Task-18: Customer Serializer (all fields optional)
+# Customer Serializer (all fields optional)
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
@@ -40,7 +40,7 @@ class OrderCreateSerializer(serializers.ModelSerializer):
         return order
 
 
-# Task-23: Lightweight Order listing serializer
+# Lightweight Order listing serializer
 class OrderListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
