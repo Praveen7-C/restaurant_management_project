@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Customer
+
 # Create your tests here.
 class CustomerModelTest(TestCase):
     def test_create_guest_customer(self):
