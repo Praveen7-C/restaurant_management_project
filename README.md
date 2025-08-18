@@ -32,7 +32,6 @@ This is a Django-based backend system that manages restaurant operations, includ
 5. **REST API (Django REST Framework)**
    * Modular APIs for account, products, and orders
    * Browsable API via DRF interface
-   * Postman collection for testing
 
 ---
 
