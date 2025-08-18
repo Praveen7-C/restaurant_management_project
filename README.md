@@ -56,8 +56,7 @@ restaurant_management_project/
 ├── products/            # Restaurant and menu item models
 ├── orders/              # Orders and customer tracking
 ├── home/                # Frontend template pages
-├── static/              # Global CSS and assets
-├── templates/           # Custom 404 and shared templates
+    |__ templates/           # Custom 404 and shared templates
 ├── manage.py
 ├── requirements.txt
 └── README.md
