@@ -33,6 +33,8 @@ def home_view(request):
         "menu_items": menu_items,
         'restaurant_name': restaurant_name,
         'phone_number': phone_number,
+        "logo_url": logo_url,
+        "current_year": datetime.now().year,
     }
     return render(request, 'menu/home.html', context)
 
