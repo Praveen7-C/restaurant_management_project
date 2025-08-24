@@ -18,6 +18,7 @@
             {% endif %}
             <nav style="margin-top: 10px;">
                 <a href="{% url 'home:home' %}" style="margin-right: 20px; color: #555; text-decoration: none;">Home</a>
+                <a href="{%url 'home:reservations' %}" style="margin-right: 20px; color: #555; text-decoration: none;">Reservations</a>
                 <a href="{% url 'home:about'%}" style="margin-right: 20px; color: #555; text-decoration: none;">About</a>
                 <a href="{% url 'home:contact' %}" style="color: #555; text-decoration: none;"> Contact Us</a>
             </nav>
@@ -49,7 +50,7 @@
     </main>
 
     <footer style="text-align: center; padding: 40px 0; color: #999;">
-        <p> {{ restaurant_name }} * Crafted with Django</p>
+        <p> {{ restaurant_name }} {{current_year}} . All rights reserved</p>
     </footer>
 
   </body>
