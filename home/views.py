@@ -73,4 +73,8 @@ def contact_view(request):
     }
     return render(request, 'menu/contact.html', context)
 
-    
+    def reservations_view(request):
+        context = {
+            "message": "Online reservations will be available soon. Please call us to book a table!"
+        }
+        return render(request, 'menu/reservations.html', context)
