@@ -3,31 +3,39 @@ from products.models import MenuItem, Restaurant
 from django.conf import settings
 
 def home_view(request):
+    #Default values
+    restaurant_name = getattr(settings, 'RESTAURANT_NAME', 'My Restaurant')
+    phone_number = getattr(settings, 'RESTAURANT_PHONE', 'Not available')
+    logo_url = getattr(settings, 'RESTAURANT_LOGO', 'images/logo.png')
+
     menu_items = []
-    items = MenuItem.objects.filter(is_available=True).order_by('created_at')
-    if not items:
+    try:
+        restaurant = Restaurant.objects.first()
+        if restaurant:
+            restaurant_name = restaurant_name
+            phone_number = restaurant.phone_number or phone_number
+            #Fetch menu items
+            items = MenuItem.objects.filter(is_available=True).order_by('created_at')
+
+            if items.exists():
+                menu_items  = [
+                    {
+                        "name": item.name,
+                        "description": item.description,
+                        "price": item.price,
+                        "is_available": item.is-available
+                    }
+                    for item in items
+                ]
+                else:
+                    raise ValueError("No menu items in database")
+
+    except(DatabaseError, Exception) as e:
         menu_items = [
         {"name": "Panner Butter Masala", "description": "Creamy panner curry", "price":250},
         {"name":"Veg Biryani", "description": "Spicy rice with veggies", "price":200},
         {"name":"Dal Makhani", "description":  "Rich lentil curry", "price":180},   
     ]
-
-    else:
-        for item in items:
-            menu_items.append({
-                "name": item.name,
-                "description": items.description,
-                "price": item.price,
-                "is_available": item.is_available
-            })
-
-    restaurant_obj = Restaurant.objects.first()
-    if restaurant_obj:
-        restaurant_name = restaurant_obj.name
-        phone_number = restaurant_obj.phone_number or getattr(settings, 'RESTAURANT_PHONE', 'Not available')
-    else:
-        restaurant_name= getattr(settings, 'RESTAURANT_NAME', 'My Restaurant')
-        phone_number = getattr(settings, 'RESTAURANT_PHONE', 'Not available')
 
     context ={
         "menu_items": menu_items,
