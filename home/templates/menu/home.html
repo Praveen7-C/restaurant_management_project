@@ -28,6 +28,14 @@
 
     <main style="max-width:980px; margin: 40px auto; padding: 0 16px;">
         <h2 style="font-size: 2rem; margin-bottom: 20px; color: #333;">Explore Our Menu</h2>
+
+        <!-- Search Bar -->
+        {% if query %}
+        <p style="margin-bottom: 20px; font-style: italic;">
+            Showing results for "<strong>{{ query }}</strong>"
+        </p>
+        {% endif %}
+
         {% if menu_items %}
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
             {% for item in menu_items %}
