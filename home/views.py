@@ -82,9 +82,23 @@ def contact_view(request):
         'address': address,
     }
     return render(request, 'menu/contact.html', context)
-
-    def reservations_view(request):
-        context = {
+def reservations_view(request):
+    context = {
             "message": "Online reservations will be available soon. Please call us to book a table!"
         }
-        return render(request, 'menu/reservations.html', context)
+    return render(request, 'menu/reservations.html', context)
+
+def feedback_view(request):
+    if request.method == "POST":
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, "menu/feedback.html", {
+                "form": FeedbackForm(),
+                "success": " Thank you for your feedback!"
+            })
+    else:
+        form = FeedbackForm()
+
+    return render(request, "menu/feedback.html", {"form": form})
+
